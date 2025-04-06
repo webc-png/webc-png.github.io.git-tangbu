@@ -1,0 +1,509 @@
+/* 基礎設定 */
+:root {
+    --primary-color: #D4A76A;  /* 砂糖色 */
+    --secondary-color: #F5E6C8;  /* 米色 */
+    --accent-color: #A0522D;  /* 紅糖色 */
+    --text-color: #333;
+    --light-bg: #FFFDF9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+}
+
+body {
+    background-color:var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 進度條 */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background-color: #f1f1f1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--accent-color);
+    width: 0%;
+    transition: width 0.3s;
+}
+
+/* 頁首 */
+header {
+    background: linear-gradientrgba(0,0,0,0.6), url('assets/header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.938);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.938);
+}
+
+/* 標籤頁 */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tab {
+    padding: 12px 25px;
+    background-color: var(--secondary-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    border-radius: 5px 5px 0 0;
+}
+
+.tab.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 共用元素 */
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+h3 {
+    color: var(--accent-color);
+    margin: 20px 0 15px;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+/* 園區概覽樣式 */
+.fun-fact {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.fun-fact img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: zoom-in;
+}
+
+.quick-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.quick-info li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+/* 歷史沿革樣式 */
+.timeline-story {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.time-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.year {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.time-card .content {
+    flex-grow: 1;
+}
+
+.time-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: zoom-in;
+}
+
+.did-you-know {
+    background-color: #f0f7ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 4px solid #6ab0f3;
+}
+
+/* 建築特色樣式 */
+.exploration-game {
+    background-color: #f9f4e6;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.clue-box {
+    background-color: white;
+    padding: 15px;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 8px 8px 0;
+    margin: 15px 0;
+}
+
+.before-after {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.before-after > div {
+    flex: 1;
+    text-align: center;
+}
+
+.before-after img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: zoom-in;
+}
+
+.before-after p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 製糖流程樣式 */
+.science-box {
+    background-color: #f9f5f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 5px solid var(--accent-color);
+}
+
+.process-steps {
+    counter-reset: step;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.process-steps li {
+    list-style: none;
+    position: relative;
+    padding: 10px 0 10px 40px;
+    border-bottom: 1px dashed #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.process-steps li:hover {
+    background-color: #fff8e8;
+}
+
+.process-steps li:before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.interactive-lab {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+.lab-card {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.lab-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: zoom-in;
+}
+
+.lab-card button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* 今日園區樣式 */
+.activity-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.card {
+    width: 280px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    cursor: zoom-in;
+}
+
+.card h3 {
+    margin: 10px 15px 5px;
+    color: var(--accent-color);
+}
+
+.card p {
+    margin: 0 15px 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.card button {
+    width: calc(100% - 30px);
+    margin: 0 15px 15px;
+    padding: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.visitor-tip {
+    background-color: #f8f4e8;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.visitor-tip ol {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.visitor-tip li {
+    margin-bottom: 8px;
+}
+
+/* 測驗區樣式 */
+.quiz-container {
+    background-color: #f9f9f9;
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.quiz-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.quiz-options {
+    margin-left: 20px;
+}
+
+.quiz-option {
+    margin-bottom: 8px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.quiz-option:hover {
+    background-color: #eee;
+}
+
+.quiz-feedback {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    font-size: 14px;
+}
+
+.quiz-feedback.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.quiz-feedback.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* 彈出視窗 */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* 頁尾 */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .tab {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .before-after {
+        flex-direction: column;
+    }
+    
+    .lab-card {
+        flex-direction: column;
+    }
+    
+    .lab-card img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .activity-cards {
+        flex-direction: column;
+    }
+    
+    .card {
+        width: 100%;
+    }
+}
