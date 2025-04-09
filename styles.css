@@ -137,7 +137,7 @@ h3 {
 }
 
 .fun-fact img {
-    width: 100%;
+    width: 80%;
     max-height: 600px;
     object-fit: cover;
     border-radius: 8px;
