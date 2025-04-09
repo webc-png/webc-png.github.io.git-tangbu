@@ -321,18 +321,19 @@ h3 {
 
 /* 今日園區樣式 */
 .activity-cards {
-    display: inline-flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: flex; /* 使用 flex 布局 */
+    justify-content: center; /* 水平居中 */
+    gap: 20px; /* 卡片之间的间距 */
     margin: 20px 0;
 }
 
 .card {
-    width: 250px;
+    width: 280px; /* 固定宽度 */
     border: 1px solid #eee;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    flex-shrink: 0; /* 防止卡片缩小 */
 }
 
 .card img {
