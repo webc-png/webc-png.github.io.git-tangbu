@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>臺北製糖所探險指南</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
     
-    <header>
+    <header class="animate__animated animate__fadeIn">
         <div class="container">
-            <h2>臺北製糖所探險指南</h2>
+            <h1>臺北製糖所探險指南</h1>
             <p class="subtitle">從糖廠到文化基地的甜蜜旅程</p>
+            <div class="scroll-down animate__animated animate__bounce animate__infinite">
+                <span></span>
+            </div>
         </div>
     </header>
     
@@ -28,16 +32,14 @@
         </div>
         
         <!-- 園區概覽 -->
-        <div id="overview" class="tab-content active">
+        <div id="overview" class="tab-content active animate__animated animate__fadeIn">
             <h2>糖廠變身文化基地</h2>
             
             <div class="fun-fact">
                 <p>這裡曾是「臺北製糖所」的倉庫，現在變成說糖業故事的大教室！</p>
                 <img src="images/old-new1.png" alt="新舊對比" class="expand-image" 
                      onclick="showImagePopup('images/old-new.png', '糖廠過去與現在')">
-                     <p>
-                        圖片來源：臉書臺北艋舺之源、國家文化資產網
-                    </p>
+                <p>圖片來源：臉書臺北艋舺之源、國家文化資產網</p>
             </div>
 
             <div class="quick-info">
@@ -69,7 +71,7 @@
             <h2>糖廠的時光旅行</h2>
             
             <div class="timeline-story">
-                <div class="time-card">
+                <div class="time-card animate__animated" data-animate="animate__fadeInLeft">
                     <div class="year">1911</div>
                     <div class="content">
                         <h3>甜蜜的開始</h3>
@@ -77,7 +79,7 @@
                     </div>
                 </div>
                 
-                <div class="time-card">
+                <div class="time-card animate__animated" data-animate="animate__fadeInRight">
                     <div class="year">1943</div>
                     <div class="content">
                         <h3>再見了甘蔗</h3>
@@ -85,7 +87,7 @@
                     </div>
                 </div>
                 
-                <div class="time-card">
+                <div class="time-card animate__animated" data-animate="animate__fadeInLeft">
                     <div class="year">2003</div>
                     <div class="content">
                         <h3>老屋新生命</h3>
@@ -94,7 +96,7 @@
                 </div>
             </div>
             
-            <div class="did-you-know">
+            <div class="did-you-know animate__animated animate__pulse animate__infinite animate__slower">
                 <p>💡 冷知識：當時1公噸糖可以換5000碗剉冰！</p>
             </div>
 
@@ -115,24 +117,23 @@
         <!-- 建築特色 -->
         <div id="architecture" class="tab-content">
             <h2>發現老建築的秘密</h2>
-                <div class="before-after">
-                    <div>
-                        <img src="images/blocks.png" class="expand-image" 
-                             onclick="showImagePopup('images/blocks.png', '站牌上方以積木模型重現過去場景，讓大家回味車站的美好時光')">
-                        <p>站牌上方的積木模型</p>
-                    </div>
-             </div>
-        <div class="before-after">
-                    <div>
-                        <img src="images/train.jpg" class="expand-image" 
-                             onclick="showImagePopup('images/train.jpg', '火車加掛平車、蔗箱車與守車')">
-                        <p>2002年台糖公司捐獻火車</p>
-                    </div>
-             </div>
+            <div class="before-after">
+                <div class="animate__animated" data-animate="animate__fadeInUp">
+                    <img src="images/blocks.png" class="expand-image" 
+                         onclick="showImagePopup('images/blocks.png', '站牌上方以積木模型重現過去場景，讓大家回味車站的美好時光')">
+                    <p>站牌上方的積木模型</p>
+                </div>
+                <div class="animate__animated" data-animate="animate__fadeInUp animate__delay-1s">
+                    <img src="images/train.jpg" class="expand-image" 
+                         onclick="showImagePopup('images/train.jpg', '火車加掛平車、蔗箱車與守車')">
+                    <p>2002年台糖公司捐獻火車</p>
+                </div>
+            </div>
+
             <div class="exploration-game">
                 <h3><span class="icon">🔍</span> 觀察任務</h3>
                 
-                <div class="clue-box">
+                <div class="clue-box animate__animated animate__fadeIn">
                     <p>找找看園區這些特別的建築設計：</p>
                     <ul>
                         <li><strong>TR磚月台：</strong>月台以TR磚砌成，長達50公尺、寬20公尺</li>
@@ -142,12 +143,12 @@
                 </div>
                 
                 <div class="before-after">
-                    <div>
+                    <div class="animate__animated" data-animate="animate__fadeInLeft">
                         <img src="images/platform.JPG" class="expand-image" 
                              onclick="showImagePopup('images/platform.JPG', 'TR是「台灣煉瓦（Taiwan Renga）株式會社」的英文縮寫，為一等建材')">
                         <p>TR磚月台</p>
                     </div>
-                    <div>
+                    <div class="animate__animated" data-animate="animate__fadeInRight">
                         <img src="images/brick-detail.jpg" class="expand-image" 
                              onclick="showImagePopup('images/brick-detail.jpg', '磚牆構造細節')">
                         <p>建築師傅的巧思</p>
@@ -169,46 +170,36 @@
             </div>
         </div>
         
-<!-- 製糖流程 -->
-<div id="process" class="tab-content">
-    <h2>砂糖誕生記</h2>
-    
-    <!-- 新增動畫展示區 -->
-    <div class="sugar-process-animation">
-        <div class="animation-container">
-            <div class="sugarcane"></div>
-            <div class="juice" style="display: none;"></div>
-            <div class="syrup" style="display: none;"></div>
-            <div class="sugar-crystals" style="display: none;"></div>
-            <div class="final-sugar" style="display: none;"></div>
-        </div>
-        <div class="animation-controls">
-            <button id="reset-animation">重製動畫</button>
-        </div>
-    </div>
-    
-    <div class="science-box">
-        <p>從甘蔗到砂糖需要經過<span class="highlight" onclick="showPopup('關鍵步驟','7道主要工序')">7道魔法程序</span>：</p>
-        <ol class="process-steps">
-            <li onclick="showStepDetail('撕裂')">撕開甘甜源（撕裂）</li>
-            <li onclick="showStepDetail('壓榨')">榨出甜蜜汁（壓榨）</li>
-            <li onclick="showStepDetail('清淨')">雜質說掰掰（清淨）</li>
-            <li onclick="showStepDetail('蒸發')">濃縮變糖漿（蒸發）</li>
-            <li onclick="showStepDetail('結晶')">糖膏小魔法（煮糖）</li>
-            <li onclick="showStepDetail('分蜜')">糖蜜分離術（分蜜）</li>
-            <li onclick="showStepDetail('乾燥')">乾燥室定型（乾燥）</li>
-        </ol>
-    </div>
-</div>
-    
-    <div class="science-box">
-        <!-- 原有流程列表保持不變 -->
-        <p>從甘蔗到砂糖需要經過<span class="highlight" onclick="showPopup('關鍵步驟','7道主要工序')">7道魔法程序</span>：</p>
-        <ol class="process-steps">
-            <!-- 原有列表項保持不變 -->
-        </ol>
-    </div>
-</div>
+        <!-- 製糖流程 -->
+        <div id="process" class="tab-content">
+            <h2>砂糖誕生記</h2>
+            
+            <div class="sugar-process-animation">
+                <div class="animation-container">
+                    <div class="sugarcane"></div>
+                    <div class="juice" style="display: none;"></div>
+                    <div class="syrup" style="display: none;"></div>
+                    <div class="sugar-crystals" style="display: none;"></div>
+                    <div class="final-sugar" style="display: none;"></div>
+                </div>
+                <div class="animation-controls">
+                    <button id="reset-animation">重製動畫</button>
+                </div>
+            </div>
+            
+            <div class="science-box">
+                <p>從甘蔗到砂糖需要經過<span class="highlight" onclick="showPopup('關鍵步驟','7道主要工序')">7道魔法程序</span>：</p>
+                <ol class="process-steps">
+                    <li onclick="showStepDetail('撕裂')">撕開甘甜源（撕裂）</li>
+                    <li onclick="showStepDetail('壓榨')">榨出甜蜜汁（壓榨）</li>
+                    <li onclick="showStepDetail('清淨')">雜質說掰掰（清淨）</li>
+                    <li onclick="showStepDetail('蒸發')">濃縮變糖漿（蒸發）</li>
+                    <li onclick="showStepDetail('結晶')">糖膏小魔法（煮糖）</li>
+                    <li onclick="showStepDetail('分蜜')">糖蜜分離術（分蜜）</li>
+                    <li onclick="showStepDetail('乾燥')">乾燥室定型（乾燥）</li>
+                </ol>
+            </div>
+
             <div class="quiz-container">
                 <div class="quiz-question">哪個步驟能讓蔗汁變成糖漿？</div>
                 <div class="quiz-options">
@@ -228,7 +219,7 @@
             <h2>現在玩什麼？</h2>
             
             <div class="activity-cards">
-                <div class="card">
+                <div class="card animate__animated" data-animate="animate__flipInY">
                     <img src="images/exhibit.jpg" alt="常設展" class="expand-image" 
                          onclick="showImagePopup('images/exhibit.jpg', '常設展覽')">
                     <h3>常設展</h3>
@@ -236,12 +227,11 @@
                     <button onclick="showPopup('展覽詳情','糖業歷史常設展全年開放')">更多資訊</button>
                 </div>
                 
-                <div class="card">
+                <div class="card animate__animated" data-animate="animate__flipInY animate__delay-1s">
                     <img src="images/event.png" alt="甘蔗祭" class="expand-image" 
                          onclick="showImagePopup('images/event.png', '艋舺甘蔗祭')">
                     <h3>甘蔗祭</h3>
                     <p>每年11月甜蜜登場</p>
-                      </a>                     
                     <button onclick="showPopup('活動內容','製糖示範+手作體驗')">更多資訊</button>
                 </div>
             </div>
@@ -264,12 +254,17 @@
     <footer>
         <div class="container">
             <p>本導覽手冊僅供教育使用</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">📱</a>
+                <a href="#" class="social-icon">📷</a>
+                <a href="#" class="social-icon">📧</a>
+            </div>
         </div>
     </footer>
     
     <!-- 彈出視窗 -->
     <div class="popup" id="popup">
-        <div class="popup-content">
+        <div class="popup-content animate__animated animate__zoomIn">
             <span class="close-popup" onclick="closePopup()">&times;</span>
             <h3 id="popup-title">標題</h3>
             <div id="popup-content">
@@ -280,7 +275,7 @@
     
     <!-- 圖片彈出視窗 -->
     <div class="popup" id="imagePopup">
-        <div class="popup-content" style="background-color: transparent; box-shadow: none; padding: 0;">
+        <div class="popup-content animate__animated animate__zoomIn" style="background-color: transparent; box-shadow: none; padding: 0;">
             <span class="close-popup" onclick="closeImagePopup()" style="color: white; text-shadow: 0 0 5px black;">&times;</span>
             <img id="popup-image" src="" alt="" style="width: 100%; max-height: 70vh; object-fit: contain;">
             <p id="popup-image-caption" style="color: white; text-align: center; margin-top: 10px; text-shadow: 0 0 5px black;"></p>
