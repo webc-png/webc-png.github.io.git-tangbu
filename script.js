@@ -18,6 +18,9 @@ function openTab(evt, tabName) {
     
     // 更新進度條
     updateProgressBar();
+    
+    // 觸發滾動動畫
+    animateOnScroll();
 }
 
 // 顯示彈出視窗
@@ -29,11 +32,26 @@ function showPopup(title, content) {
     popupTitle.textContent = title;
     popupContent.innerHTML = content;
     popup.style.display = "flex";
+    
+    // 添加動畫類
+    const popupContentElement = document.querySelector(".popup-content");
+    popupContentElement.classList.add("animate__animated", "animate__zoomIn");
 }
 
 // 關閉彈出視窗
 function closePopup() {
-    document.getElementById("popup").style.display = "none";
+    const popup = document.getElementById("popup");
+    const popupContentElement = document.querySelector(".popup-content");
+    
+    // 先添加縮小動畫
+    popupContentElement.classList.remove("animate__zoomIn");
+    popupContentElement.classList.add("animate__zoomOut");
+    
+    // 動畫結束後隱藏彈窗
+    setTimeout(() => {
+        popup.style.display = "none";
+        popupContentElement.classList.remove("animate__zoomOut");
+    }, 300);
 }
 
 // 顯示圖片彈出視窗
@@ -41,16 +59,31 @@ function showImagePopup(src, caption) {
     const popup = document.getElementById("imagePopup");
     const img = document.getElementById("popup-image");
     const imgCaption = document.getElementById("popup-image-caption");
+    const popupContent = document.querySelector("#imagePopup .popup-content");
     
     img.src = src;
     img.alt = caption;
     imgCaption.textContent = caption;
     popup.style.display = "flex";
+    
+    // 添加動畫類
+    popupContent.classList.add("animate__animated", "animate__zoomIn");
 }
 
 // 關閉圖片彈出視窗
 function closeImagePopup() {
-    document.getElementById("imagePopup").style.display = "none";
+    const popup = document.getElementById("imagePopup");
+    const popupContent = document.querySelector("#imagePopup .popup-content");
+    
+    // 先添加縮小動畫
+    popupContent.classList.remove("animate__zoomIn");
+    popupContent.classList.add("animate__zoomOut");
+    
+    // 動畫結束後隱藏彈窗
+    setTimeout(() => {
+        popup.style.display = "none";
+        popupContent.classList.remove("animate__zoomOut");
+    }, 300);
 }
 
 // 檢查測驗答案
@@ -64,20 +97,32 @@ function checkAnswer(element, correctness, correctAnswer) {
         option.style.backgroundColor = "";
     });
     
+    // 添加點擊動畫
+    element.classList.add("animate__animated", "animate__pulse");
+    setTimeout(() => {
+        element.classList.remove("animate__animated", "animate__pulse");
+    }, 500);
+    
     // 高亮所選選項
     if (correctness === 'correct') {
         element.style.backgroundColor = "#d4edda";
         feedback.className = "quiz-feedback correct";
         feedback.style.display = "block";
+        feedback.classList.add("animate__animated", "animate__fadeIn");
     } else {
         element.style.backgroundColor = "#f8d7da";
         feedback.className = "quiz-feedback incorrect";
         feedback.style.display = "block";
+        feedback.classList.add("animate__animated", "animate__fadeIn");
         
         // 找出正確答案並高亮
         const correctOption = element.parentElement.querySelector(`[onclick*="correctAnswer=${correctAnswer}"]`);
         if (correctOption) {
             correctOption.style.backgroundColor = "#d4edda";
+            correctOption.classList.add("animate__animated", "animate__tada");
+            setTimeout(() => {
+                correctOption.classList.remove("animate__animated", "animate__tada");
+            }, 1000);
         }
     }
 }
@@ -127,13 +172,25 @@ function setupSugarProcessAnimation() {
         
         // 重置所有步驟高亮
         steps.forEach(step => step.classList.remove('highlighted'));
+        
+        // 重置動畫
+        sugarcane.style.animation = '';
+        juice.style.animation = '';
+        syrup.style.animation = '';
+        sugarCrystals.style.animation = '';
     }
     
     // 初始化
     resetAnimation();
     
     // 綁定重置按鈕
-    resetBtn.addEventListener('click', resetAnimation);
+    resetBtn.addEventListener('click', function() {
+        this.classList.add("animate__animated", "animate__pulse");
+        setTimeout(() => {
+            this.classList.remove("animate__animated", "animate__pulse");
+        }, 500);
+        resetAnimation();
+    });
     
     // 為每個步驟綁定動畫
     steps.forEach((step, index) => {
@@ -141,6 +198,12 @@ function setupSugarProcessAnimation() {
             // 高亮當前步驟
             steps.forEach(s => s.classList.remove('highlighted'));
             this.classList.add('highlighted');
+            
+            // 添加點擊動畫
+            this.classList.add("animate__animated", "animate__pulse");
+            setTimeout(() => {
+                this.classList.remove("animate__animated", "animate__pulse");
+            }, 500);
             
             // 根據步驟播放對應動畫
             switch(index) {
@@ -227,6 +290,75 @@ function setupSugarProcessAnimation() {
     }
 }
 
+// 滾動動畫
+function animateOnScroll() {
+    const elements = document.querySelectorAll('[data-animate]');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if(elementPosition < screenPosition) {
+            const animationClasses = element.getAttribute('data-animate').split(' ');
+            element.classList.add(...animationClasses);
+        }
+    });
+}
+
+// 更新閱讀進度條
+function updateProgressBar() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("progressBar").style.width = scrolled + "%";
+}
+
+// 滾動時更新進度條和觸發動畫
+window.onscroll = function() {
+    updateProgressBar();
+    animateOnScroll();
+};
+
+// 點擊彈出視窗外部關閉視窗
+window.onclick = function(event) {
+    const popup = document.getElementById("popup");
+    const imagePopup = document.getElementById("imagePopup");
+    
+    if (event.target == popup) {
+        closePopup();
+    }
+    
+    if (event.target == imagePopup) {
+        closeImagePopup();
+    }
+};
+
+// 初始化函數
+function init() {
+    // 添加動畫關鍵幀
+    addAnimationKeyframes();
+    
+    // 設置製糖流程動畫
+    setupSugarProcessAnimation();
+    
+    // 初始化滾動動畫
+    animateOnScroll();
+    
+    // 初始化第一個標籤頁為active
+    document.querySelector(".tab").classList.add("active");
+    document.querySelector(".tab-content").classList.add("active");
+    
+    // 為所有圖片添加點擊動畫
+    document.querySelectorAll('.expand-image').forEach(img => {
+        img.addEventListener('click', function() {
+            this.classList.add("animate__animated", "animate__pulse");
+            setTimeout(() => {
+                this.classList.remove("animate__animated", "animate__pulse");
+            }, 500);
+        });
+    });
+}
+
 // 添加動畫關鍵幀
 function addAnimationKeyframes() {
     const style = document.createElement('style');
@@ -247,45 +379,23 @@ function addAnimationKeyframes() {
             0%, 100% { opacity: 0.8; }
             50% { opacity: 1; }
         }
+        
+        @keyframes scrollDown {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-10px, -10px);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(10px, 10px);
+            }
+        }
     `;
     document.head.appendChild(style);
 }
 
-// 初始化時調用
-document.addEventListener("DOMContentLoaded", function() {
-    addAnimationKeyframes();
-    setupSugarProcessAnimation();
-});
-
-// 更新閱讀進度條
-function updateProgressBar() {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    document.getElementById("progressBar").style.width = scrolled + "%";
-}
-
-// 滾動時更新進度條
-window.onscroll = function() {
-    updateProgressBar();
-};
-
-// 點擊彈出視窗外部關閉視窗
-window.onclick = function(event) {
-    const popup = document.getElementById("popup");
-    const imagePopup = document.getElementById("imagePopup");
-    
-    if (event.target == popup) {
-        popup.style.display = "none";
-    }
-    
-    if (event.target == imagePopup) {
-        imagePopup.style.display = "none";
-    }
-};
-
-// 初始化第一個標籤頁為active
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector(".tab").classList.add("active");
-    document.querySelector(".tab-content").classList.add("active");
-});
+// 頁面載入完成後初始化
+document.addEventListener("DOMContentLoaded", init);
