@@ -321,7 +321,7 @@ h3 {
 
 /* 今日園區樣式 */
 .activity-cards {
-    display: flex;
+    display: inline-flex;
     gap: 20px;
     flex-wrap: wrap;
     margin: 20px 0;
