@@ -85,6 +85,7 @@ function checkAnswer(element, correctness, correctAnswer) {
 // 顯示製糖步驟詳細資訊
 function showStepDetail(stepName) {
     const stepDetails = {
+        '撕裂': '使用撕裂機將每支甘蔗撕裂，依甘蔗的纖維方向撕裂',
         '壓榨': '使用大型壓榨機，每噸甘蔗可榨出約700公斤汁液',
         '清淨': '加入石灰中和酸性，pH值控制在7-8之間',
         '蒸發': '在多效蒸發罐中濃縮至65°Brix糖度',
