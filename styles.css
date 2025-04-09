@@ -58,9 +58,16 @@ header {
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 6vw, 2rem); /* 響應式字體大小 */
+    white-space: nowrap; /* 禁止換行 */
+    overflow: hidden; /* 隱藏溢出內容 */
+    text-overflow: ellipsis; /* 結尾顯示... */
     margin-bottom: 15px;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    
+    /* 新增確保單行顯示的屬性 */
+    display: inline-block;
+    max-width: 100%;
 }
 
 .subtitle {
