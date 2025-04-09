@@ -184,7 +184,31 @@
                     <li onclick="showStepDetail('乾燥')">乾燥室定型（乾燥）</li>
                 </ol>
             </div>
-            
+            <div id="process" class="tab-content">
+    <h2>砂糖誕生記</h2>
+    
+    <!-- 新增動畫展示區 -->
+    <div class="sugar-process-animation">
+        <div class="animation-container">
+            <div class="sugarcane"></div>
+            <div class="juice" style="display: none;"></div>
+            <div class="syrup" style="display: none;"></div>
+            <div class="sugar-crystals" style="display: none;"></div>
+            <div class="final-sugar" style="display: none;"></div>
+        </div>
+        <div class="animation-controls">
+            <button id="reset-animation">重製動畫</button>
+        </div>
+    </div>
+    
+    <div class="science-box">
+        <!-- 原有流程列表保持不變 -->
+        <p>從甘蔗到砂糖需要經過<span class="highlight" onclick="showPopup('關鍵步驟','7道主要工序')">7道魔法程序</span>：</p>
+        <ol class="process-steps">
+            <!-- 原有列表項保持不變 -->
+        </ol>
+    </div>
+</div>
             <div class="quiz-container">
                 <div class="quiz-question">哪個步驟能讓蔗汁變成糖漿？</div>
                 <div class="quiz-options">
