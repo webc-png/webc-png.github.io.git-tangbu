@@ -410,6 +410,3 @@
  
  // 頁面載入完成後初始化
  document.addEventListener("DOMContentLoaded", init);
-
-// 頁面載入完成後初始化
-document.addEventListener("DOMContentLoaded", init);
