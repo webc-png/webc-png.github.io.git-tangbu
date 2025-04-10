@@ -1,275 +1,276 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>臺北製糖所指南</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <base href="https://webc-png.github.io/webc-png.github.io.git-tangbu1/">
-</head>
-<body>
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-    
-    <header class="animate__animated animate__fadeIn">
-        <div class="container">
-            <h1>臺北製糖所指南</h1>
-            <p class="subtitle">從糖廠到文化基地的旅程</p>
-            <div class="scroll-down animate__animated animate__bounce animate__infinite">
-                <span></span>
-            </div>
-        </div>
-    </header>
-    
-    <div class="container">
-        <div class="tab-container">
-            <button class="tab active" onclick="openTab(event, 'overview')">糖廠揭秘</button>
-            <button class="tab" onclick="openTab(event, 'history')">時光旅行</button>
-            <button class="tab" onclick="openTab(event, 'architecture')">建築尋寶</button>
-            <button class="tab" onclick="openTab(event, 'process')">製糖魔法</button>
-            <button class="tab" onclick="openTab(event, 'today')">玩轉園區</button>
-        </div>
-        
-        
-        <div id="overview" class="tab-content active animate__animated animate__fadeIn">
-            <h2>糖廠變身文化基地</h2>
-            
-            <div class="fun-fact">
-                <p>這裡曾是「臺北製糖所」的倉庫，現在變成說糖業故事的大教室！</p>
-                <img src="images/old-new1.png" alt="新舊對比" class="expand-image" 
-                     onclick="showImagePopup('images/old-new.png', '糖廠過去與現在')">
-                <p>圖片來源：臉書臺北艋舺之源、國家文化資產網</p>
-            </div>
-
-            <div class="quick-info">
-                <h3><span class="icon">📌</span> 快速認識</h3>
-                <ul>
-                    <li><strong>年紀：</strong>超過100歲（1911年出生）</li>
-                    <li><strong>身分：</strong>市定古蹟（2003年認證）</li>
-                    <li><strong>地址：</strong>萬華區大理街132-10號</li>
-                    <li><strong>開放時間：</strong>週二~週日 10:00-17:00</li>
-                </ul>
-            </div>
-
-            <div class="quiz-container">
-                <div class="quiz-question">猜猜看：製糖廠為什麼選在萬華？</div>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'C')">A. 這裡最甜</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'C')">B. 風水最好</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'C')">C. 水路運輸方便</div>
-                </div>
-                <div class="quiz-feedback" id="quiz1-feedback">
-                    正解：C！此處為新店溪、大嵙崁溪合流點，又與鐵路連結，水路運輸利於集散輸出，也具有水道設施，適合製糖與運送～
-                    <small>（資料來源：臺北製糖所維基百科）</small>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div id="history" class="tab-content">
-            <h2>糖廠的時光旅行</h2>
-            
-            <div class="timeline-story">
-                <div class="time-card animate__animated" data-animate="animate__fadeInLeft">
-                    <div class="year">1911</div>
-                    <div class="content">
-                        <h3>甜蜜的開始</h3>
-                        <p>日本時代設立「台北製糖株式會社」，為北臺灣第一家新式製糖廠，每日壓榨甘蔗量為700公噸，產糖量為80公噸</p>
-                    </div>
-                </div>
-                
-                <div class="time-card animate__animated" data-animate="animate__fadeInRight">
-                    <div class="year">1943</div>
-                    <div class="content">
-                        <h3>再見了甘蔗</h3>
-                        <p>總督府禁止製造耕地白糖，原設備移轉至戰力化工廠，臺北製糖所宣布廢止，廠房設施也逐日拆毀</p>
-                    </div>
-                </div>
-                
-                <div class="time-card animate__animated" data-animate="animate__fadeInLeft">
-                    <div class="year">2003</div>
-                    <div class="content">
-                        <h3>老屋新生命</h3>
-                        <p>糖廠倉庫變成市定古蹟，開始文化園區計畫</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="did-you-know animate__animated animate__pulse animate__infinite animate__slower">
-                <p>💡 冷知識：當時1公噸糖可以換5000碗剉冰！</p>
-            </div>
-
-            <div class="quiz-container">
-                <div class="quiz-question">臺北製糖所停產的主要原因？</div>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'B')">A. 機器老舊</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'B')">B. 糖廠設備移轉至戰力化工廠</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'B')">C. 戰爭破壞</div>
-                </div>
-                <div class="quiz-feedback" id="quiz2-feedback">
-                    正確答案：B！因太平洋戰爭爆發，戰事吃緊，原設備移轉至戰力化工廠，臺北製糖所宣布廢止，廠房設施也逐日拆毀
-                    <small>（資料來源：臺北製糖所維基百科）</small>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div id="architecture" class="tab-content">
-            <h2>發現老建築的秘密</h2>
-            <div class="before-after">
-                <div class="animate__animated" data-animate="animate__fadeInUp">
-                    <img src="images/blocks.png" class="expand-image" 
-                         onclick="showImagePopup('images/blocks.png', '站牌上方以積木模型重現過去場景，讓大家回味車站的美好時光')">
-                    <p>站牌上方的積木模型</p>
-                </div>
-                <div class="animate__animated" data-animate="animate__fadeInUp animate__delay-1s">
-                    <img src="images/train.jpg" class="expand-image" 
-                         onclick="showImagePopup('images/train.jpg', '火車加掛平車、蔗箱車與守車')">
-                    <p>2002年台糖公司捐獻火車</p>
-                </div>
-            </div>
-
-            <div class="exploration-game">
-                <h3><span class="icon">🔍</span> 觀察任務</h3>
-                
-                <div class="clue-box animate__animated animate__fadeIn">
-                    <p>找找看園區這些特別的建築設計：</p>
-                    <ul>
-                        <li><strong>TR磚月台：</strong>月台以TR磚砌成，長達50公尺、寬20公尺</li>
-                        <li><strong>大跨距木桁架：</strong>利用木桁架撐起倉庫所需的空間</li>
-                        <li><strong>建築特色：</strong>紅磚外牆、拱門、梯形柱</li>
-                    </ul>
-                </div>
-                
-                <div class="before-after">
-                    <div class="animate__animated" data-animate="animate__fadeInLeft">
-                        <img src="images/platform.JPG" class="expand-image" 
-                             onclick="showImagePopup('images/platform.JPG', 'TR是「台灣煉瓦（Taiwan Renga）株式會社」的英文縮寫，為一等建材')">
-                        <p>TR磚月台</p>
-                    </div>
-                    <div class="animate__animated" data-animate="animate__fadeInRight">
-                        <img src="images/brick-detail.jpg" class="expand-image" 
-                             onclick="showImagePopup('images/brick-detail.jpg', '磚牆構造細節')">
-                        <p>建築師傅的巧思</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quiz-container">
-                <div class="quiz-question">糖廠倉庫的大跨距設計主要目的是？</div>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'A')">A. 方便堆放甘蔗</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'A')">B. 看起來氣派</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'A')">C. 節省建築材料</div>
-                </div>
-                <div class="quiz-feedback" id="quiz3-feedback">
-                    正確答案：A！無柱空間可堆放更多甘蔗原料
-                    <small>（資料來源：古蹟修復報告）</small>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div id="process" class="tab-content">
-            <h2>砂糖誕生記</h2>
-            
-            <div class="science-box">
-                <p>從甘蔗到砂糖需要經過<span class="highlight" onclick="showPopup('關鍵步驟','7道主要工序')">7道魔法程序</span>：</p>
-                <ol class="process-steps">
-                    <li onclick="showStepDetail('撕裂')">撕開甘甜源（撕裂）</li>
-                    <li onclick="showStepDetail('壓榨')">榨出甜蜜汁（壓榨）</li>
-                    <li onclick="showStepDetail('清淨')">雜質說掰掰（清淨）</li>
-                    <li onclick="showStepDetail('蒸發')">濃縮變糖漿（蒸發）</li>
-                    <li onclick="showStepDetail('結晶')">糖膏小魔法（煮糖）</li>
-                    <li onclick="showStepDetail('分蜜')">糖蜜分離術（分蜜）</li>
-                    <li onclick="showStepDetail('乾燥')">乾燥室定型（乾燥）</li>
-                </ol>
-            </div>
-
-            <div class="quiz-container">
-                <div class="quiz-question">哪個步驟能讓蔗汁變成糖漿？</div>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'B')">A. 壓榨</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'B')">B. 蒸發</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'B')">C. 分蜜</div>
-                </div>
-                <div class="quiz-feedback" id="quiz4-feedback">
-                    正確答案：B！過濾後的蔗汁，會送到預熱器加熱至到105℃左右，再送到多效蒸發罐濃縮成糖漿～
-                    <small>（資料來源：台糖通訊）</small>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div id="today" class="tab-content">
-            <h2>現在玩什麼？</h2>
-            
-            <div class="activity-cards">
-                <div class="card animate__animated" data-animate="animate__flipInY">
-                    <img src="images/exhibit.jpg" alt="常設展" class="expand-image" 
-                         onclick="showImagePopup('images/exhibit.jpg', '常設展覽')">
-                    <h3>常設展</h3>
-                    <p>喚起糖業歷史回憶！</p>
-                    <button onclick="showPopup('展覽詳情','糖業歷史常設展全年開放')">更多資訊</button>
-                </div>
-                
-                <div class="card animate__animated" data-animate="animate__flipInY animate__delay-1s">
-                    <img src="images/event.png" alt="甘蔗祭" class="expand-image" 
-                         onclick="showImagePopup('images/event.png', '艋舺甘蔗祭')">
-                    <h3>甘蔗祭</h3>
-                    <p>每年11月甜蜜登場</p>
-                    <button onclick="showPopup('活動內容','製糖示範+手作體驗')">更多資訊</button>
-                </div>
-            </div>
-
-            <div class="quiz-container">
-                <div class="quiz-question">園區目前「沒有」提供哪項服務？</div>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'D')">A. 古蹟導覽</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'D')">B. 甘蔗祭活動</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'D')">C. 製糖體驗</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'D')">D. 買工業用糖</div>
-                </div>
-                <div class="quiz-feedback" id="quiz5-feedback">
-                    正確答案：D！這裡是文化園區不是工廠喔～
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <footer>
-        <div class="container">
-            <p>本導覽手冊僅供教育使用</p>
-            <div class="social-links">
-                <a href="#" class="social-icon">📱</a>
-                <a href="#" class="social-icon">📷</a>
-                <a href="#" class="social-icon">📧</a>
-            </div>
-        </div>
-    </footer>
-    
-    
-    <div class="popup" id="popup">
-        <div class="popup-content animate__animated animate__zoomIn">
-            <span class="close-popup" onclick="closePopup()">&times;</span>
-            <h3 id="popup-title">標題</h3>
-            <div id="popup-content">
-                內容將在這裡顯示...
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="popup" id="imagePopup">
-        <div class="popup-content animate__animated animate__zoomIn" style="background-color: transparent; box-shadow: none; padding: 0;">
-            <span class="close-popup" onclick="closeImagePopup()" style="color: white; text-shadow: 0 0 5px black;">&times;</span>
-            <img id="popup-image" src="" alt="" style="width: 100%; max-height: 70vh; object-fit: contain;">
-            <p id="popup-image-caption" style="color: white; text-align: center; margin-top: 10px; text-shadow: 0 0 5px black;"></p>
-        </div>
-    </div>
-    
-    <script src="https://webc-png.github.io/webc-png.github.io.git-tangbu1/script.js"></script>
-</body>
-</html>
+ <html lang="zh-TW">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>臺北製糖所探險指南</title>
+     <title>臺北製糖所指南</title>
+     <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+ </head>
+ <body>
+     <div class="progress-container">
+         <div class="progress-bar" id="progressBar"></div>
+     </div>
+ 
+     <header class="animate__animated animate__fadeIn">
+         <div class="container">
+             <h1>臺北製糖所探險指南</h1>
+             <h1>臺北製糖所指南</h1>
+             <p class="subtitle">從糖廠到文化基地的甜蜜旅程</p>
+             <div class="scroll-down animate__animated animate__bounce animate__infinite">
+                 <span></span>
+             </div>
+         </div>
+     </header>
+ 
+     <div class="container">
+         <div class="tab-container">
+             <button class="tab active" onclick="openTab(event, 'overview')">糖廠揭秘</button>
+             <button class="tab" onclick="openTab(event, 'history')">時光旅行</button>
+             <button class="tab" onclick="openTab(event, 'architecture')">建築尋寶</button>
+             <button class="tab" onclick="openTab(event, 'process')">製糖魔法</button>
+             <button class="tab" onclick="openTab(event, 'today')">玩轉園區</button>
+         </div>
+ 
+         <!-- 園區概覽 -->
+         <div id="overview" class="tab-content active animate__animated animate__fadeIn">
+             <h2>糖廠變身文化基地</h2>
+ 
+             <div class="fun-fact">
+                 <p>這裡曾是「臺北製糖所」的倉庫，現在變成說糖業故事的大教室！</p>
+                 <img src="images/old-new1.png" alt="新舊對比" class="expand-image" 
+                      onclick="showImagePopup('images/old-new.png', '糖廠過去與現在')">
+                 <p>圖片來源：臉書臺北艋舺之源、國家文化資產網</p>
+             </div>
+ 
+             <div class="quick-info">
+                 <h3><span class="icon">📌</span> 快速認識</h3>
+                 <ul>
+                     <li><strong>年紀：</strong>超過100歲（1911年出生）</li>
+                     <li><strong>身分：</strong>市定古蹟（2003年認證）</li>
+                     <li><strong>地址：</strong>萬華區大理街132-10號</li>
+                     <li><strong>開放時間：</strong>週二~週日 10:00-17:00</li>
+                 </ul>
+             </div>
+ 
+             <div class="quiz-container">
+                 <div class="quiz-question">猜猜看：製糖廠為什麼選在萬華？</div>
+                 <div class="quiz-options">
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'C')">A. 這裡最甜</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'C')">B. 風水最好</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'C')">C. 水路運輸方便</div>
+                 </div>
+                 <div class="quiz-feedback" id="quiz1-feedback">
+                     正解：C！此處為新店溪、大嵙崁溪合流點，又與鐵路連結，水路運輸利於集散輸出，也具有水道設施，適合製糖與運送～
+                     <small>（資料來源：臺北製糖所維基百科）</small>
+                 </div>
+             </div>
+         </div>
+ 
+         <!-- 歷史沿革 -->
+         <div id="history" class="tab-content">
+             <h2>糖廠的時光旅行</h2>
+ 
+             <div class="timeline-story">
+                 <div class="time-card animate__animated" data-animate="animate__fadeInLeft">
+                     <div class="year">1911</div>
+                     <div class="content">
+                         <h3>甜蜜的開始</h3>
+                         <p>日本時代設立「台北製糖株式會社」，為北臺灣第一家新式製糖廠，每日壓榨甘蔗量為700公噸，產糖量為80公噸</p>
+                     </div>
+                 </div>
+ 
+                 <div class="time-card animate__animated" data-animate="animate__fadeInRight">
+                     <div class="year">1943</div>
+                     <div class="content">
+                         <h3>再見了甘蔗</h3>
+                         <p>總督府禁止製造耕地白糖，原設備移轉至戰力化工廠，臺北製糖所宣布廢止，廠房設施也逐日拆毀</p>
+                     </div>
+                 </div>
+ 
+                 <div class="time-card animate__animated" data-animate="animate__fadeInLeft">
+                     <div class="year">2003</div>
+                     <div class="content">
+                         <h3>老屋新生命</h3>
+                         <p>糖廠倉庫變成市定古蹟，開始文化園區計畫</p>
+                     </div>
+                 </div>
+             </div>
+ 
+             <div class="did-you-know animate__animated animate__pulse animate__infinite animate__slower">
+                 <p>💡 冷知識：當時1公噸糖可以換5000碗剉冰！</p>
+             </div>
+ 
+             <div class="quiz-container">
+                 <div class="quiz-question">臺北製糖所停產的主要原因？</div>
+                 <div class="quiz-options">
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'B')">A. 機器老舊</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'B')">B. 糖廠設備移轉至戰力化工廠</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'B')">C. 戰爭破壞</div>
+                 </div>
+                 <div class="quiz-feedback" id="quiz2-feedback">
+                     正確答案：B！因太平洋戰爭爆發，戰事吃緊，原設備移轉至戰力化工廠，臺北製糖所宣布廢止，廠房設施也逐日拆毀
+                     <small>（資料來源：臺北製糖所維基百科）</small>
+                 </div>
+             </div>
+         </div>
+ 
+         <!-- 建築特色 -->
+         <div id="architecture" class="tab-content">
+             <h2>發現老建築的秘密</h2>
+             <div class="before-after">
+                 <div class="animate__animated" data-animate="animate__fadeInUp">
+                     <img src="images/blocks.png" class="expand-image" 
+                          onclick="showImagePopup('images/blocks.png', '站牌上方以積木模型重現過去場景，讓大家回味車站的美好時光')">
+                     <p>站牌上方的積木模型</p>
+                 </div>
+                 <div class="animate__animated" data-animate="animate__fadeInUp animate__delay-1s">
+                     <img src="images/train.jpg" class="expand-image" 
+                          onclick="showImagePopup('images/train.jpg', '火車加掛平車、蔗箱車與守車')">
+                     <p>2002年台糖公司捐獻火車</p>
+                 </div>
+             </div>
+ 
+             <div class="exploration-game">
+                 <h3><span class="icon">🔍</span> 觀察任務</h3>
+ 
+                 <div class="clue-box animate__animated animate__fadeIn">
+                     <p>找找看園區這些特別的建築設計：</p>
+                     <ul>
+                         <li><strong>TR磚月台：</strong>月台以TR磚砌成，長達50公尺、寬20公尺</li>
+                         <li><strong>大跨距木桁架：</strong>利用木桁架撐起倉庫所需的空間</li>
+                         <li><strong>建築特色：</strong>紅磚外牆、拱門、梯形柱</li>
+                     </ul>
+                 </div>
+ 
+                 <div class="before-after">
+                     <div class="animate__animated" data-animate="animate__fadeInLeft">
+                         <img src="images/platform.JPG" class="expand-image" 
+                              onclick="showImagePopup('images/platform.JPG', 'TR是「台灣煉瓦（Taiwan Renga）株式會社」的英文縮寫，為一等建材')">
+                         <p>TR磚月台</p>
+                     </div>
+                     <div class="animate__animated" data-animate="animate__fadeInRight">
+                         <img src="images/brick-detail.jpg" class="expand-image" 
+                              onclick="showImagePopup('images/brick-detail.jpg', '磚牆構造細節')">
+                         <p>建築師傅的巧思</p>
+                     </div>
+                 </div>
+             </div>
+ 
+             <div class="quiz-container">
+                 <div class="quiz-question">糖廠倉庫的大跨距設計主要目的是？</div>
+                 <div class="quiz-options">
+                     <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'A')">A. 方便堆放甘蔗</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'A')">B. 看起來氣派</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'A')">C. 節省建築材料</div>
+                 </div>
+                 <div class="quiz-feedback" id="quiz3-feedback">
+                     正確答案：A！無柱空間可堆放更多甘蔗原料
+                     <small>（資料來源：古蹟修復報告）</small>
+                 </div>
+             </div>
+         </div>
+ 
+         <!-- 製糖流程 -->
+         <div id="process" class="tab-content">
+             <h2>砂糖誕生記</h2>
+ 
+             <div class="science-box">
+                 <p>從甘蔗到砂糖需要經過<span class="highlight" onclick="showPopup('關鍵步驟','7道主要工序')">7道魔法程序</span>：</p>
+                 <ol class="process-steps">
+                     <li onclick="showStepDetail('撕裂')">撕開甘甜源（撕裂）</li>
+                     <li onclick="showStepDetail('壓榨')">榨出甜蜜汁（壓榨）</li>
+                     <li onclick="showStepDetail('清淨')">雜質說掰掰（清淨）</li>
+                     <li onclick="showStepDetail('蒸發')">濃縮變糖漿（蒸發）</li>
+                     <li onclick="showStepDetail('結晶')">糖膏小魔法（煮糖）</li>
+                     <li onclick="showStepDetail('分蜜')">糖蜜分離術（分蜜）</li>
+                     <li onclick="showStepDetail('乾燥')">乾燥室定型（乾燥）</li>
+                 </ol>
+             </div>
+ 
+             <div class="quiz-container">
+                 <div class="quiz-question">哪個步驟能讓蔗汁變成糖漿？</div>
+                 <div class="quiz-options">
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'B')">A. 壓榨</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'B')">B. 蒸發</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'B')">C. 分蜜</div>
+                 </div>
+                 <div class="quiz-feedback" id="quiz4-feedback">
+                     正確答案：B！過濾後的蔗汁，會送到預熱器加熱至到105℃左右，再送到多效蒸發罐濃縮成糖漿～
+                     <small>（資料來源：台糖通訊）</small>
+                 </div>
+             </div>
+         </div>
+ 
+         <!-- 今日園區 -->
+         <div id="today" class="tab-content">
+             <h2>現在玩什麼？</h2>
+ 
+             <div class="activity-cards">
+                 <div class="card animate__animated" data-animate="animate__flipInY">
+                     <img src="images/exhibit.jpg" alt="常設展" class="expand-image" 
+                          onclick="showImagePopup('images/exhibit.jpg', '常設展覽')">
+                     <h3>常設展</h3>
+                     <p>喚起糖業歷史回憶！</p>
+                     <button onclick="showPopup('展覽詳情','糖業歷史常設展全年開放')">更多資訊</button>
+                 </div>
+ 
+                 <div class="card animate__animated" data-animate="animate__flipInY animate__delay-1s">
+                     <img src="images/event.png" alt="甘蔗祭" class="expand-image" 
+                          onclick="showImagePopup('images/event.png', '艋舺甘蔗祭')">
+                     <h3>甘蔗祭</h3>
+                     <p>每年11月甜蜜登場</p>
+                     <button onclick="showPopup('活動內容','製糖示範+手作體驗')">更多資訊</button>
+                 </div>
+             </div>
+ 
+             <div class="quiz-container">
+                 <div class="quiz-question">園區目前「沒有」提供哪項服務？</div>
+                 <div class="quiz-options">
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'D')">A. 古蹟導覽</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'D')">B. 甘蔗祭活動</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'incorrect', 'D')">C. 製糖體驗</div>
+                     <div class="quiz-option" onclick="checkAnswer(this, 'correct', 'D')">D. 買工業用糖</div>
+                 </div>
+                 <div class="quiz-feedback" id="quiz5-feedback">
+                     正確答案：D！這裡是文化園區不是工廠喔～
+                 </div>
+             </div>
+         </div>
+     </div>
+ 
+     <footer>
+         <div class="container">
+             <p>本導覽手冊僅供教育使用</p>
+             <div class="social-links">
+                 <a href="#" class="social-icon">📱</a>
+                 <a href="#" class="social-icon">📷</a>
+                 <a href="#" class="social-icon">📧</a>
+             </div>
+         </div>
+     </footer>
+ 
+     <!-- 彈出視窗 -->
+     <div class="popup" id="popup">
+         <div class="popup-content animate__animated animate__zoomIn">
+             <span class="close-popup" onclick="closePopup()">&times;</span>
+             <h3 id="popup-title">標題</h3>
+             <div id="popup-content">
+                 內容將在這裡顯示...
+             </div>
+         </div>
+     </div>
+ 
+     <!-- 圖片彈出視窗 -->
+     <div class="popup" id="imagePopup">
+         <div class="popup-content animate__animated animate__zoomIn" style="background-color: transparent; box-shadow: none; padding: 0;">
+             <span class="close-popup" onclick="closeImagePopup()" style="color: white; text-shadow: 0 0 5px black;">&times;</span>
+             <img id="popup-image" src="" alt="" style="width: 100%; max-height: 70vh; object-fit: contain;">
+             <p id="popup-image-caption" style="color: white; text-align: center; margin-top: 10px; text-shadow: 0 0 5px black;"></p>
+         </div>
+     </div>
+ 
+     <script src="script.js"></script>
+ </body>
+ </html>
