@@ -34,7 +34,7 @@
  function showPopup(title, content) {
      const popup = document.getElementById("popup");
      const popupTitle = document.getElementById("popup-title");
- @@ -33,28 +33,28 @@
+ @@ -33,28 +33,28 @@ function showPopup(title, content) {
      popupContent.innerHTML = content;
      popup.style.display = "flex";
  
@@ -68,7 +68,7 @@
  function showImagePopup(src, caption) {
      const popup = document.getElementById("imagePopup");
      const img = document.getElementById("popup-image");
- @@ -66,44 +66,44 @@
+ @@ -66,44 +66,44 @@ function showImagePopup(src, caption) {
      imgCaption.textContent = caption;
      popup.style.display = "flex";
  
@@ -121,7 +121,7 @@
      if (correctness === 'correct') {
          element.style.backgroundColor = "#d4edda";
          feedback.className = "quiz-feedback correct";
- @@ -115,7 +115,7 @@
+ @@ -115,7 +115,7 @@ function checkAnswer(element, correctness, correctAnswer) {
          feedback.style.display = "block";
          feedback.classList.add("animate__animated", "animate__fadeIn");
  
@@ -130,7 +130,7 @@
          const correctOption = element.parentElement.querySelector(`[onclick*="correctAnswer=${correctAnswer}"]`);
          if (correctOption) {
              correctOption.style.backgroundColor = "#d4edda";
- @@ -127,7 +127,7 @@
+ @@ -127,7 +127,7 @@ function checkAnswer(element, correctness, correctAnswer) {
      }
  }
  
@@ -139,7 +139,7 @@
  function showStepDetail(stepName) {
      const stepDetails = {
          '撕裂': '使用撕裂機將每支甘蔗撕裂，依甘蔗的纖維方向撕裂',
- @@ -139,7 +139,7 @@
+ @@ -139,7 +139,7 @@ function showStepDetail(stepName) {
          '乾燥': '熱風乾燥至水分含量低於0.06%'
      };
  
@@ -148,7 +148,7 @@
      const stepIndex = Object.keys(stepDetails).indexOf(stepName);
      if (stepIndex >= 0) {
          const steps = document.querySelectorAll('.process-steps li');
- @@ -149,41 +149,41 @@
+ @@ -149,41 +149,41 @@ function showStepDetail(stepName) {
      showPopup(stepName + '小知識', stepDetails[stepName] || '這是製糖的重要步驟！');
  }
  
@@ -198,7 +198,7 @@
      resetBtn.addEventListener('click', function() {
          this.classList.add("animate__animated", "animate__pulse");
          setTimeout(() => {
- @@ -192,105 +192,47 @@
+ @@ -192,105 +192,47 @@ function setupSugarProcessAnimation() {
          resetAnimation();
      });
  
@@ -315,7 +315,7 @@
  function animateOnScroll() {
      const elements = document.querySelectorAll('[data-animate]');
  
- @@ -305,21 +247,21 @@
+ @@ -305,21 +247,21 @@ function animateOnScroll() {
      });
  }
  
@@ -340,7 +340,7 @@
  window.onclick = function(event) {
      const popup = document.getElementById("popup");
      const imagePopup = document.getElementById("imagePopup");
- @@ -333,22 +275,15 @@
+ @@ -333,22 +275,15 @@ window.onclick = function(event) {
      }
  };
  
@@ -366,7 +366,7 @@
      document.querySelectorAll('.expand-image').forEach(img => {
          img.addEventListener('click', function() {
              this.classList.add("animate__animated", "animate__pulse");
- @@ -359,43 +294,42 @@
+ @@ -359,7 +294,6 @@ function init() {
      });
  }
  
@@ -374,59 +374,3 @@
  function addAnimationKeyframes() {
      const style = document.createElement('style');
      style.textContent = `
-         @keyframes shake {
-             0%, 100% { transform: translateX(-50%) rotate(0deg); }
-             25% { transform: translateX(-52%) rotate(-5deg); }
-             75% { transform: translateX(-48%) rotate(5deg); }
-         }
-         
-         @keyframes bubble {
-             0% { box-shadow: 0 0 0 0 rgba(212, 167, 106, 0.4); }
-             50% { box-shadow: 0 0 0 10px rgba(212, 167, 106, 0); }
-             100% { box-shadow: 0 0 0 0 rgba(212, 167, 106, 0); }
-         }
-         
-         @keyframes glow {
-             0%, 100% { opacity: 0.8; }
-             50% { opacity: 1; }
-         }
-         
-         @keyframes scrollDown {
-             0% {
-                 opacity: 0;
-                 transform: rotate(45deg) translate(-10px, -10px);
-             }
-             50% {
-                 opacity: 1;
-             }
-             100% {
-                 opacity: 0;
-                 transform: rotate(45deg) translate(10px, 10px);
-             }
-         }
-     `;
-     document.head.appendChild(style);
- }
- 
- // 頁面載入完成後初始化
- document.addEventListener("DOMContentLoaded", init);
-  function init() {
-    // 添加動畫關鍵幀
-    addAnimationKeyframes();
-    
-    // 設置製糖流程動畫
-    setupSugarProcessAnimation();
-    
-    // 初始化滾動動畫
-    animateOnScroll();
-    
-    // 為所有圖片添加點擊動畫
-    document.querySelectorAll('.expand-image').forEach(img => {
-        img.addEventListener('click', function() {
-            this.classList.add("animate__animated", "animate__pulse");
-            setTimeout(() => {
-                this.classList.remove("animate__animated", "animate__pulse");
-            }, 500);
-        });
-    });
-}
