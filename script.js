@@ -410,3 +410,23 @@
  
  // 頁面載入完成後初始化
  document.addEventListener("DOMContentLoaded", init);
+  function init() {
+    // 添加動畫關鍵幀
+    addAnimationKeyframes();
+    
+    // 設置製糖流程動畫
+    setupSugarProcessAnimation();
+    
+    // 初始化滾動動畫
+    animateOnScroll();
+    
+    // 為所有圖片添加點擊動畫
+    document.querySelectorAll('.expand-image').forEach(img => {
+        img.addEventListener('click', function() {
+            this.classList.add("animate__animated", "animate__pulse");
+            setTimeout(() => {
+                this.classList.remove("animate__animated", "animate__pulse");
+            }, 500);
+        });
+    });
+}
